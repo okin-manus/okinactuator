@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OKIN Actuator Systems - Premium German Drive Technology for Smart Furniture, Medical & Office Applications">
+    <title>OKIN Actuator Systems | German Drive Technology</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero {
+            background: white;
+            padding: 60px 40px;
+            margin: 40px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: #1e3c72;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .contact-section {
+            background: white;
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contact-section h2 {
+            color: #1e3c72;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(30, 60, 114, 0.4);
+        }
+
+        .btn-center {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .footer-section a {
+            color: #b8c5d6;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: #b8c5d6;
+        }
+
+        .main-cta {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .main-cta h2 {
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">OKIN</div>
+            <div class="tagline">German Engineering Excellence Since 1982</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Premium Actuator Systems for Smart Living</h1>
+            <p>OKIN is a world-leading provider of innovative drive technology solutions. From smart bedrooms to height-adjustable offices and medical care applications, our German-engineered actuators deliver unmatched quality, reliability, and performance.</p>
+            <a href="#contact" class="btn">Request a Quote</a>
+        </section>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🛏️</div>
+                <h3>Smart Bedroom</h3>
+                <p>Advanced drive technology for motorized adjustable beds, complete with app control, voice integration, and sleep monitoring systems.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🪑</div>
+                <h3>Smart Seating</h3>
+                <p>Powerful actuators for recliners, lift chairs, and cinema seating. Compact design with up to 6,000N force capacity.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏢</div>
+                <h3>Smart Office</h3>
+                <p>Height-adjustable desk solutions with lifting columns, promoting healthier workplaces with outstanding functionality.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3>Medical & Care</h3>
+                <p>Certified drive systems for hospital beds, patient lifters, and medical chairs meeting strict healthcare standards.</p>
+            </div>
+        </div>
+
+        <section class="stats">
+            <h2>Global Leadership in Drive Technology</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h4>40+</h4>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1500+</h4>
+                    <p>Authorized Patents</p>
+                </div>
+                <div class="stat-item">
+                    <h4>5</h4>
+                    <p>R&D Centers Worldwide</p>
+                </div>
+                <div class="stat-item">
+                    <h4>Millions</h4>
+                    <p>Systems in Operation</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="main-cta">
+            <h2>Ready to Upgrade Your Furniture Solutions?</h2>
+            <p>Partner with the industry pioneer in smart drive technology. Our team is ready to customize solutions for your specific requirements.</p>
+            <a href="https://www.dewertokin.com" target="_blank" class="btn" style="background: white; color: #1e3c72;">Visit Official Website</a>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <h2>Get In Touch</h2>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. Our team will contact you shortly.');">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name *</label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Business Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="interest">Product Interest</label>
+                    <input type="text" id="interest" name="interest" placeholder="e.g., Smart Bedroom, Office Desks, Medical Equipment">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project requirements..."></textarea>
+                </div>
+                <div class="btn-center">
+                    <button type="submit" class="btn">Send Inquiry</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact Information</h4>
+                    <p style="color: #b8c5d6; margin-bottom: 10px;">
+                        DewertOkin GmbH<br>
+                        Haller Straße 40<br>
+                        32278 Kirchlengern<br>
+                        Germany
+                    </p>
+                    <p style="color: #b8c5d6;">
+                        Tel: +49 (0)5223/979-0<br>
+                        Email: info@dewertokin.de
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="https://www.dewertokin.com/products/" target="_blank">Products</a>
+                    <a href="https://www.dewertokin.com/business-areas/" target="_blank">Business Areas</a>
+                    <a href="https://www.dewertokin.com/innovation/" target="_blank">Innovation</a>
+                    <a href="https://www.dewertokin.com/contact/" target="_blank">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <a href="https://www.dewertokin.com/privacy-policy/" target="_blank">Privacy Policy</a>
+                    <a href="https://www.dewertokin.com/legal-notice/" target="_blank">Legal Notice</a>
+                    <a href="https://www.dewertokin.com/terms/" target="_blank">Terms of Service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DewertOkin Technology Group. All rights reserved. | <a href="#" onclick="alert('To unsubscribe from our communications, please email unsubscribe@dewertokin.de with UNSUBSCRIBE in the subject line.'); return false;" style="color: #b8c5d6;">Unsubscribe</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
