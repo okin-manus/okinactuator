@@ -1,395 +1,1310 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OKIN Actuator Systems - Premium German Drive Technology for Smart Furniture, Medical & Office Applications">
-    <title>OKIN Actuator Systems | German Drive Technology</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="OKIN Motion Technology – Smart Linear Actuator Solutions for Adjustable Beds, Office Desks, and Medical Furniture. OEM/ODM B2B Manufacturer." />
+  <title>OKIN Motion Technology | Smart Linear Actuator Solutions</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
+  <!-- Google Fonts: Barlow Condensed (headlines) + Source Sans 3 (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+  <style>
+    /* ===========================
+       CSS VARIABLES & RESET
+    =========================== */
+    :root {
+      --navy:       #1a1a2e;
+      --blue:       #0f4c81;
+      --blue-mid:   #1a6fb5;
+      --orange:     #e85d04;
+      --orange-h:   #c94e00;
+      --white:      #ffffff;
+      --off-white:  #f4f6f9;
+      --text:       #2c2c3a;
+      --muted:      #6b7280;
+      --border:     #dde2ea;
+      --font-head:  'Barlow Condensed', sans-serif;
+      --font-body:  'Source Sans 3', sans-serif;
+      --nav-h:      68px;
+      --ease:       0.25s ease;
+    }
 
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.65; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
-        .logo {
-            font-size: 2.5em;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
+    /* ── Utilities ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        .tagline {
-            font-size: 1.2em;
-            opacity: 0.9;
-            font-weight: 300;
-        }
+    .label {
+      font-family: var(--font-head);
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 10px;
+    }
+    .rule { width: 48px; height: 3px; background: var(--orange); margin-bottom: 22px; }
 
-        .hero {
-            background: white;
-            padding: 60px 40px;
-            margin: 40px 0;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+    .h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+      font-weight: 800; color: var(--navy);
+      line-height: 1.08; margin-bottom: 14px;
+    }
+    .h2.light { color: var(--white); }
 
-        .hero h1 {
-            color: #1e3c72;
-            font-size: 2.2em;
-            margin-bottom: 20px;
-        }
+    .lead { font-size: 1rem; color: var(--muted); max-width: 580px; line-height: 1.7; }
+    .lead.light { color: rgba(255,255,255,.68); }
 
-        .hero p {
-            font-size: 1.1em;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 26px;
+      font-family: var(--font-head); font-size: .95rem;
+      font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+      border-radius: 3px; border: 2px solid transparent;
+      cursor: pointer; transition: background var(--ease), color var(--ease),
+        border-color var(--ease), transform var(--ease);
+    }
+    .btn-primary { background: var(--orange); color: var(--white); border-color: var(--orange); }
+    .btn-primary:hover { background: var(--orange-h); border-color: var(--orange-h); transform: translateY(-2px); }
+    .btn-ghost-w { background: transparent; color: var(--white); border-color: rgba(255,255,255,.55); }
+    .btn-ghost-w:hover { background: var(--white); color: var(--navy); }
+    .btn-ghost-b { background: transparent; color: var(--blue); border-color: var(--blue); }
+    .btn-ghost-b:hover { background: var(--blue); color: var(--white); }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
+    /* ── Scroll Reveal ── */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    #nav {
+      position: fixed; inset: 0 0 auto; z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(26,26,46,.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      display: flex; align-items: center;
+      transition: box-shadow var(--ease);
+    }
+    #nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,.3); }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: var(--font-head); font-size: 1.55rem; font-weight: 800; letter-spacing: .08em; color: var(--white); }
+    .nav-logo span { color: var(--orange); }
 
-        .feature-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
+    .nav-links { display: flex; list-style: none; gap: 2px; }
+    .nav-links a {
+      font-family: var(--font-head); font-size: .87rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.65); padding: 8px 13px; border-radius: 2px;
+      transition: color var(--ease), background var(--ease);
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); background: rgba(255,255,255,.07); }
+    .nav-cta { background: var(--orange) !important; color: var(--white) !important; border-radius: 3px; }
+    .nav-cta:hover { background: var(--orange-h) !important; }
 
-        .feature-card h3 {
-            color: #1e3c72;
-            margin-bottom: 10px;
-        }
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .ham span { display: block; width: 24px; height: 2px; background: var(--white); transition: transform .3s, opacity .3s; }
+    .ham.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .ham.open span:nth-child(2) { opacity: 0; }
+    .ham.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        .stats {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 50px 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            text-align: center;
-        }
+    #mob-nav {
+      display: none; position: fixed; top: var(--nav-h); inset-inline: 0;
+      background: var(--navy); z-index: 999; padding: 18px 24px 28px;
+      flex-direction: column; gap: 0; border-bottom: 2px solid var(--orange);
+    }
+    #mob-nav.open { display: flex; }
+    #mob-nav a {
+      font-family: var(--font-head); font-size: .98rem; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: rgba(255,255,255,.75); padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      transition: color var(--ease);
+    }
+    #mob-nav a:hover { color: var(--orange); }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: var(--nav-h); overflow: hidden;
+    }
 
-        .stat-item h4 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
+    /* Background image layer */
+    /* Image: ./images/hero.jpg — factory production line / actuator close-up / lifestyle bed shot */
+    /* Recommended: 1920×1080 min, dark/neutral tones for overlay readability */
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: var(--navy) url('./images/hero.jpg') center / cover no-repeat;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(108deg, rgba(14,14,28,.93) 0%, rgba(15,76,129,.6) 52%, rgba(14,14,28,.38) 100%);
+    }
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background-image: repeating-linear-gradient(-52deg, transparent, transparent 62px, rgba(232,93,4,.035) 62px, rgba(232,93,4,.035) 63px);
+    }
 
-        .contact-section {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+    .hero-content { position: relative; z-index: 2; max-width: 740px; }
 
-        .contact-section h2 {
-            color: #1e3c72;
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(232,93,4,.14); border: 1px solid rgba(232,93,4,.38);
+      padding: 6px 16px; border-radius: 2px; margin-bottom: 22px;
+      font-family: var(--font-head); font-size: .77rem; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase; color: var(--orange);
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; }
 
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.5rem, 6vw, 4.3rem);
+      font-weight: 800; color: var(--white);
+      line-height: 1.0; margin-bottom: 22px; letter-spacing: -.01em;
+    }
+    .hero-title em { color: var(--orange); font-style: normal; }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.7); max-width: 510px; margin-bottom: 38px; line-height: 1.7; }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-            font-weight: 500;
-        }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1em;
-            transition: border-color 0.3s;
-        }
+    .hero-scroll {
+      position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.35);
+      font-family: var(--font-head); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase;
+      animation: scb 2.2s infinite;
+    }
+    .hero-scroll::after { content: ''; display: block; width: 1px; height: 42px; background: linear-gradient(to bottom, rgba(255,255,255,.28), transparent); }
+    @keyframes scb { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #1e3c72;
-        }
+    /* ===========================
+       TRUST BAR
+    =========================== */
+    .trust-bar { background: var(--blue); padding: 13px 0; overflow: hidden; white-space: nowrap; }
+    .trust-inner { display: inline-flex; gap: 56px; animation: ticker 32s linear infinite; }
+    .trust-item {
+      font-family: var(--font-head); font-size: .8rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.72);
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .trust-item::before { content: '◆'; color: var(--orange); font-size: .45rem; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        .btn {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
-            text-decoration: none;
-        }
+    /* ===========================
+       ABOUT
+    =========================== */
+    #about { padding: 96px 0; background: var(--off-white); }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(30, 60, 114, 0.4);
-        }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 
-        .btn-center {
-            text-align: center;
-            margin-top: 20px;
-        }
+    .about-img-wrap { position: relative; }
+    /* Image: ./images/factory.jpg — production floor, aerial factory, or CNC machinery */
+    .about-img-main {
+      width: 100%; height: 420px; border-radius: 2px;
+      background: var(--blue) url('./images/factory.jpg') center / cover no-repeat;
+    }
+    /* Image: ./images/team.jpg — engineering team, R&D lab, or PCB closeup */
+    .about-img-accent {
+      position: absolute; bottom: -26px; right: -26px;
+      width: 175px; height: 125px; border-radius: 2px;
+      border: 4px solid var(--white);
+      background: var(--navy) url('./images/team.jpg') center / cover no-repeat;
+      box-shadow: 0 10px 28px rgba(0,0,0,.16);
+    }
+    .about-year {
+      position: absolute; top: -18px; left: 22px;
+      background: var(--orange); color: var(--white);
+      font-family: var(--font-head); font-weight: 800; font-size: .83rem; letter-spacing: .1em;
+      padding: 6px 16px;
+    }
 
-        footer {
-            background: #1e3c72;
-            color: white;
-            padding: 40px 0;
-            margin-top: 60px;
-        }
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+      margin-top: 44px; border: 1px solid var(--border); border-radius: 3px; overflow: hidden;
+    }
+    .stat-box { background: var(--white); padding: 22px 18px; text-align: center; border-right: 1px solid var(--border); }
+    .stat-box:last-child { border-right: none; }
+    .stat-n { font-family: var(--font-head); font-size: 2.1rem; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+    .stat-n span { color: var(--orange); }
+    .stat-l { font-size: .78rem; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
+    /* ===========================
+       OVERVIEW
+    =========================== */
+    #overview { padding: 96px 0; background: var(--white); }
 
-        .footer-section h4 {
-            margin-bottom: 15px;
-            color: #fff;
-        }
+    .ov-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
 
-        .footer-section a {
-            color: #b8c5d6;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-            transition: color 0.3s;
-        }
+    .ov-cards { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
 
-        .footer-section a:hover {
-            color: white;
-        }
+    .ov-card {
+      border: 1px solid var(--border); border-radius: 3px; overflow: hidden;
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+    .ov-card:hover { border-color: var(--blue); box-shadow: 0 8px 26px rgba(15,76,129,.12); }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            color: #b8c5d6;
-        }
+    .ov-img {
+      width: 100%; height: 195px; object-fit: cover; display: block;
+      transition: transform .4s ease;
+      background: var(--blue) center / cover no-repeat;
+    }
+    .ov-card:hover .ov-img { transform: scale(1.04); }
+    /* Images — add src to each <img> tag below:
+       Card 1: ./images/cat-bed.jpg      — adjustable bed lifestyle shot
+       Card 2: ./images/cat-sofa.jpg     — power recliner lifestyle
+       Card 3: ./images/cat-desk.jpg     — sit-stand desk workspace
+       Card 4: ./images/cat-medical.jpg  — medical/care bed */
 
-        .main-cta {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 40px 0;
-        }
+    .ov-body { padding: 18px; }
+    .ov-tag { font-family: var(--font-head); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: 5px; }
+    .ov-title { font-family: var(--font-head); font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .ov-desc { font-size: .85rem; color: var(--muted); line-height: 1.55; }
+    .ov-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; font-family: var(--font-head); font-size: .8rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--blue); transition: gap var(--ease); }
+    .ov-card:hover .ov-link { gap: 10px; }
 
-        .main-cta h2 {
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
+    /* ===========================
+       PRODUCTS
+    =========================== */
+    #products { padding: 96px 0; background: var(--navy); }
+    .prod-head { margin-bottom: 52px; }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 1.8em;
-            }
+    .prod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: rgba(255,255,255,.05); }
 
-            .features {
-                grid-template-columns: 1fr;
-            }
+    .prod-card {
+      background: rgba(255,255,255,.03); padding: 32px 28px;
+      border: 1px solid rgba(255,255,255,.07);
+      position: relative; overflow: hidden;
+      transition: background var(--ease);
+    }
+    .prod-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--orange); transition: height .3s ease; }
+    .prod-card:hover::before { height: 100%; }
+    .prod-card:hover { background: rgba(255,255,255,.06); }
 
-            .logo {
-                font-size: 2em;
-            }
-        }
-    </style>
+    /* Product images — add src to each <img> tag:
+       ./images/prod-bed-system.jpg, ./images/prod-cb2442.jpg, ./images/prod-rf3409.jpg
+       ./images/prod-sofa-act.jpg,   ./images/prod-desk-col.jpg, ./images/prod-med-act.jpg */
+    .prod-img {
+      width: 100%; height: 150px; object-fit: contain; object-position: center;
+      margin-bottom: 18px; background: rgba(255,255,255,.05); border-radius: 2px;
+    }
+    .prod-model { font-family: var(--font-head); font-size: .7rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
+    .prod-name { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+    .prod-specs { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-bottom: 18px; }
+    .prod-specs li { font-size: .83rem; color: rgba(255,255,255,.52); display: flex; gap: 8px; }
+    .prod-specs li::before { content: '—'; color: var(--orange); flex-shrink: 0; }
+    .prod-link { font-family: var(--font-head); font-size: .8rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--blue-mid); display: inline-flex; align-items: center; gap: 6px; transition: color var(--ease), gap var(--ease); }
+    .prod-card:hover .prod-link { color: var(--orange); gap: 10px; }
+
+    /* ===========================
+       TECH & R&D
+    =========================== */
+    #tech { padding: 96px 0; background: var(--white); }
+    .tech-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 76px; align-items: center; }
+
+    .tech-img-wrap { position: relative; }
+    /* Image: ./images/rd-lab.jpg — R&D lab, test equipment, precision machinery, PCB assembly */
+    .tech-img {
+      width: 100%; height: 470px; border-radius: 2px;
+      background: var(--navy) url('./images/rd-lab.jpg') center / cover no-repeat;
+    }
+    .cert-strip { position: absolute; bottom: 0; inset-inline: 0; background: var(--navy); padding: 16px 22px; display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .cert { font-family: var(--font-head); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); display: flex; align-items: center; gap: 7px; }
+    .cert-dot { width: 5px; height: 5px; background: var(--orange); border-radius: 50%; }
+
+    .pillars { display: flex; flex-direction: column; gap: 30px; }
+    .pillar { display: flex; gap: 18px; align-items: flex-start; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+    .pillar:last-child { border-bottom: none; padding-bottom: 0; }
+    .p-num { font-family: var(--font-head); font-size: 2rem; font-weight: 800; color: var(--blue); opacity: .16; line-height: 1; min-width: 48px; }
+    .p-title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+    .p-desc { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+
+    /* ===========================
+       SOLUTIONS
+    =========================== */
+    #solutions { padding: 96px 0; background: var(--off-white); }
+    .sol-head { text-align: center; margin-bottom: 52px; }
+    .sol-head .lead { margin: 0 auto; }
+
+    .sol-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 44px; flex-wrap: wrap; }
+    .s-tab {
+      font-family: var(--font-head); font-size: .83rem; font-weight: 700;
+      letter-spacing: .07em; text-transform: uppercase;
+      padding: 9px 20px; border: 1px solid var(--border); border-radius: 2px;
+      background: var(--white); color: var(--muted); cursor: pointer;
+      transition: all var(--ease);
+    }
+    .s-tab:hover, .s-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    .s-panel { display: none; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    .s-panel.active { display: grid; }
+
+    /* Solution panel images — background-image set inline:
+       panel-bed:     ./images/sol-bed.jpg
+       panel-sofa:    ./images/sol-sofa.jpg
+       panel-office:  ./images/sol-desk.jpg
+       panel-medical: ./images/sol-medical.jpg */
+    .s-img { width: 100%; height: 350px; border-radius: 2px; background: var(--blue) center / cover no-repeat; }
+
+    .s-title { font-family: var(--font-head); font-size: 1.8rem; font-weight: 800; color: var(--navy); margin-bottom: 14px; }
+    .s-desc { font-size: .95rem; color: var(--muted); margin-bottom: 24px; line-height: 1.65; }
+    .s-feats { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
+    .s-feats li { display: flex; align-items: center; gap: 10px; font-size: .9rem; color: var(--text); }
+    .s-feats li::before {
+      content: ''; width: 17px; height: 17px; flex-shrink: 0; background: var(--orange); border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-size: 68%; background-position: center; background-repeat: no-repeat;
+    }
+
+    /* ===========================
+       RESOURCES
+    =========================== */
+    #resources { padding: 96px 0; background: var(--navy); }
+    .res-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 44px; }
+
+    .res-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+
+    .res-card {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 3px; padding: 26px 22px; display: flex; flex-direction: column; gap: 10px;
+      cursor: pointer; transition: background var(--ease), border-color var(--ease);
+    }
+    .res-card:hover { background: rgba(255,255,255,.08); border-color: rgba(232,93,4,.4); }
+
+    .res-icon { width: 42px; height: 42px; background: rgba(232,93,4,.14); border: 1px solid rgba(232,93,4,.24); border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+    .res-icon svg { width: 19px; height: 19px; color: var(--orange); }
+    .res-type { font-family: var(--font-head); font-size: .68rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--orange); }
+    .res-title { font-family: var(--font-head); font-size: 1rem; font-weight: 700; color: var(--white); line-height: 1.25; }
+    .res-meta { font-size: .78rem; color: rgba(255,255,255,.38); }
+    .res-dl { margin-top: auto; font-family: var(--font-head); font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--blue-mid); display: inline-flex; align-items: center; gap: 6px; transition: color var(--ease); }
+    .res-card:hover .res-dl { color: var(--orange); }
+
+    /* ===========================
+       CONTACT
+    =========================== */
+    #contact { padding: 96px 0; background: var(--white); }
+    .contact-intro { text-align: center; margin-bottom: 60px; }
+    .contact-intro .lead { margin: 0 auto; }
+
+    .contact-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 76px; }
+
+    .c-detail { display: flex; gap: 14px; margin-bottom: 28px; align-items: flex-start; }
+    .c-icon { width: 38px; height: 38px; background: var(--off-white); border-radius: 2px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .c-icon svg { width: 17px; height: 17px; color: var(--blue); }
+    .c-lbl { font-family: var(--font-head); font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .c-val { font-size: .93rem; color: var(--text); line-height: 1.5; }
+
+    /* Map placeholder — swap this div for a Google Maps <iframe> or set background-image */
+    .map-ph {
+      margin-top: 32px; height: 190px; border-radius: 3px;
+      border: 1px solid var(--border); background: var(--off-white) url('./images/map-placeholder.jpg') center / cover no-repeat;
+      /* Comment: ./images/map-placeholder.jpg OR replace with Google Maps iframe */
+      position: relative; overflow: hidden;
+    }
+    .map-ph::after {
+      content: 'OKIN MOTION TECHNOLOGY — GUANGDONG, CHINA';
+      position: absolute; bottom: 0; inset-inline: 0;
+      background: rgba(26,26,46,.88); color: var(--white);
+      font-family: var(--font-head); font-size: .68rem; font-weight: 700; letter-spacing: .12em;
+      padding: 9px 14px;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .fg { margin-bottom: 14px; }
+    .fg label { display: block; font-family: var(--font-head); font-size: .73rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--navy); margin-bottom: 6px; }
+    .fg input, .fg select, .fg textarea {
+      width: 100%; padding: 10px 13px;
+      font-family: var(--font-body); font-size: .93rem; color: var(--text);
+      background: var(--white); border: 1px solid var(--border); border-radius: 2px;
+      outline: none; transition: border-color var(--ease); appearance: none;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(15,76,129,.07); }
+    .fg textarea { resize: vertical; min-height: 115px; }
+    .form-note { font-size: .78rem; color: var(--muted); margin-top: 12px; }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,.05); padding: 60px 0 0; }
+
+    .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+
+    .foot-logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; letter-spacing: .08em; color: var(--white); margin-bottom: 12px; }
+    .foot-logo span { color: var(--orange); }
+    .foot-tag { font-size: .86rem; color: rgba(255,255,255,.42); line-height: 1.6; max-width: 250px; margin-bottom: 22px; }
+
+    .socials { display: flex; gap: 9px; }
+    .soc { width: 33px; height: 33px; background: rgba(255,255,255,.07); border-radius: 2px; display: flex; align-items: center; justify-content: center; transition: background var(--ease); }
+    .soc:hover { background: var(--orange); }
+    .soc svg { width: 14px; height: 14px; color: var(--white); }
+
+    .foot-col h5 { font-family: var(--font-head); font-size: .76rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 16px; }
+    .foot-col ul { list-style: none; }
+    .foot-col li { margin-bottom: 9px; }
+    .foot-col a { font-size: .88rem; color: rgba(255,255,255,.55); transition: color var(--ease); }
+    .foot-col a:hover { color: var(--white); }
+
+    .foot-bottom { border-top: 1px solid rgba(255,255,255,.06); padding: 18px 0; display: flex; justify-content: space-between; align-items: center; }
+    .foot-copy { font-size: .8rem; color: rgba(255,255,255,.28); }
+    .foot-legal { display: flex; gap: 22px; }
+    .foot-legal a { font-size: .8rem; color: rgba(255,255,255,.28); transition: color var(--ease); }
+    .foot-legal a:hover { color: rgba(255,255,255,.65); }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1024px) {
+      .ov-cards { grid-template-columns: repeat(2,1fr); }
+      .prod-grid { grid-template-columns: repeat(2,1fr); }
+      .res-grid { grid-template-columns: repeat(2,1fr); }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --nav-h: 60px; }
+      .nav-links { display: none; }
+      .ham { display: flex; }
+
+      .about-grid, .tech-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+      .s-panel.active { grid-template-columns: 1fr; gap: 36px; }
+      .about-img-accent { display: none; }
+      .ov-head { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .ov-cards, .prod-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr; }
+      .stat-box { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-box:last-child { border-bottom: none; }
+      .res-head { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .foot-grid { grid-template-columns: 1fr; gap: 28px; }
+      .foot-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .res-grid { grid-template-columns: 1fr; }
+      .sol-tabs { justify-content: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">OKIN</div>
-            <div class="tagline">German Engineering Excellence Since 1982</div>
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+<nav id="nav">
+  <div class="container nav-inner">
+    <a href="#hero" class="nav-logo">OKIN<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#tech">Tech & R&D</a></li>
+      <li><a href="#solutions">Solutions</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <div class="ham" id="ham"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mob-nav">
+  <a href="#about" class="m-lnk">About</a>
+  <a href="#overview" class="m-lnk">Overview</a>
+  <a href="#products" class="m-lnk">Products</a>
+  <a href="#tech" class="m-lnk">Tech &amp; R&amp;D</a>
+  <a href="#solutions" class="m-lnk">Solutions</a>
+  <a href="#resources" class="m-lnk">Resources</a>
+  <a href="#contact" class="m-lnk" style="color:var(--orange)">Contact Us →</a>
+</div>
+
+<!-- ==============================
+     HERO
+============================== -->
+<!-- HERO — Full-screen landing area -->
+<!-- Background: ./images/hero.jpg
+     Recommended: factory production line, actuator product shot, or premium lifestyle bedroom.
+     Min 1920×1080. Dark/neutral tones best (overlay darkens to ~90% on left). -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">B2B Linear Actuator Manufacturer · OEM / ODM</div>
+      <h1 class="hero-title">
+        Drive Systems for<br/>
+        <em>Smarter Living.</em>
+      </h1>
+      <p class="hero-sub">
+        OKIN designs and manufactures precision linear actuators, control boxes, and complete drive packages — trusted by furniture brands and OEM partners across 60+ countries.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">Request a Quote →</a>
+        <a href="#products" class="btn btn-ghost-w">View Products</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- ==============================
+     TRUST BAR
+============================== -->
+<div class="trust-bar" aria-hidden="true">
+  <!-- Duplicate items for seamless loop -->
+  <div class="trust-inner">
+    <span class="trust-item">ISO 9001 Certified</span>
+    <span class="trust-item">CE / UL / BIFMA Compliant</span>
+    <span class="trust-item">60+ Countries Served</span>
+    <span class="trust-item">1,500+ Patents</span>
+    <span class="trust-item">OEM / ODM Available</span>
+    <span class="trust-item">40+ Years Engineering</span>
+    <span class="trust-item">Custom Drive Solutions</span>
+    <span class="trust-item">ISO 9001 Certified</span>
+    <span class="trust-item">CE / UL / BIFMA Compliant</span>
+    <span class="trust-item">60+ Countries Served</span>
+    <span class="trust-item">1,500+ Patents</span>
+    <span class="trust-item">OEM / ODM Available</span>
+    <span class="trust-item">40+ Years Engineering</span>
+    <span class="trust-item">Custom Drive Solutions</span>
+  </div>
+</div>
+
+<!-- ==============================
+     ABOUT
+============================== -->
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Left: images -->
+      <div class="about-img-wrap reveal">
+        <div class="about-year">Est. 1982</div>
+        <!-- Main image: ./images/factory.jpg — factory floor, production line, or aerial view -->
+        <div class="about-img-main" role="img" aria-label="OKIN factory production floor"></div>
+        <!-- Accent image: ./images/team.jpg — engineering team or R&D lab -->
+        <div class="about-img-accent" role="img" aria-label="OKIN engineering team"></div>
+      </div>
+
+      <!-- Right: text + stats -->
+      <div class="reveal d2">
+        <div class="label">About OKIN</div>
+        <div class="rule"></div>
+        <h2 class="h2">Engineering Intelligent<br/>Drive Solutions Since 1982</h2>
+        <p class="lead" style="margin-bottom:16px;">
+          OKIN Motion Technology (DEWERTOKIN Group) is a globally recognized manufacturer of smart linear actuators, control electronics, and complete drive systems for the furniture, medical, and office ergonomics industries.
+        </p>
+        <p class="lead">
+          From our advanced R&D centers and manufacturing base in Guangdong, China, we deliver OEM-grade components and complete integrated systems to furniture brands and contract manufacturers across Europe, North America, and Asia-Pacific.
+        </p>
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-n">40<span>+</span></div>
+            <div class="stat-l">Years Founded</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">60<span>+</span></div>
+            <div class="stat-l">Countries Served</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-n">1500<span>+</span></div>
+            <div class="stat-l">Patents Held</div>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <div class="container">
-        <section class="hero">
-            <h1>Premium Actuator Systems for Smart Living</h1>
-            <p>OKIN is a world-leading provider of innovative drive technology solutions. From smart bedrooms to height-adjustable offices and medical care applications, our German-engineered actuators deliver unmatched quality, reliability, and performance.</p>
-            <a href="#contact" class="btn">Request a Quote</a>
-        </section>
+    </div>
+  </div>
+</section>
 
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">🛏️</div>
-                <h3>Smart Bedroom</h3>
-                <p>Advanced drive technology for motorized adjustable beds, complete with app control, voice integration, and sleep monitoring systems.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🪑</div>
-                <h3>Smart Seating</h3>
-                <p>Powerful actuators for recliners, lift chairs, and cinema seating. Compact design with up to 6,000N force capacity.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏢</div>
-                <h3>Smart Office</h3>
-                <p>Height-adjustable desk solutions with lifting columns, promoting healthier workplaces with outstanding functionality.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏥</div>
-                <h3>Medical & Care</h3>
-                <p>Certified drive systems for hospital beds, patient lifters, and medical chairs meeting strict healthcare standards.</p>
-            </div>
-        </div>
-
-        <section class="stats">
-            <h2>Global Leadership in Drive Technology</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h4>40+</h4>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="stat-item">
-                    <h4>1500+</h4>
-                    <p>Authorized Patents</p>
-                </div>
-                <div class="stat-item">
-                    <h4>5</h4>
-                    <p>R&D Centers Worldwide</p>
-                </div>
-                <div class="stat-item">
-                    <h4>Millions</h4>
-                    <p>Systems in Operation</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="main-cta">
-            <h2>Ready to Upgrade Your Furniture Solutions?</h2>
-            <p>Partner with the industry pioneer in smart drive technology. Our team is ready to customize solutions for your specific requirements.</p>
-            <a href="https://www.dewertokin.com" target="_blank" class="btn" style="background: white; color: #1e3c72;">Visit Official Website</a>
-        </section>
-
-        <section class="contact-section" id="contact">
-            <h2>Get In Touch</h2>
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for your interest. Our team will contact you shortly.');">
-                <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="company">Company Name *</label>
-                    <input type="text" id="company" name="company" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Business Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-                <div class="form-group">
-                    <label for="interest">Product Interest</label>
-                    <input type="text" id="interest" name="interest" placeholder="e.g., Smart Bedroom, Office Desks, Medical Equipment">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Tell us about your project requirements..."></textarea>
-                </div>
-                <div class="btn-center">
-                    <button type="submit" class="btn">Send Inquiry</button>
-                </div>
-            </form>
-        </section>
+<!-- ==============================
+     OVERVIEW
+============================== -->
+<!-- OVERVIEW — 4 core product category cards -->
+<section id="overview">
+  <div class="container">
+    <div class="ov-head">
+      <div>
+        <div class="label">Product Overview</div>
+        <div class="rule"></div>
+        <h2 class="h2">Four Core Application<br/>Categories</h2>
+      </div>
+      <a href="#products" class="btn btn-ghost-b">All Products →</a>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Contact Information</h4>
-                    <p style="color: #b8c5d6; margin-bottom: 10px;">
-                        DewertOkin GmbH<br>
-                        Haller Straße 40<br>
-                        32278 Kirchlengern<br>
-                        Germany
-                    </p>
-                    <p style="color: #b8c5d6;">
-                        Tel: +49 (0)5223/979-0<br>
-                        Email: info@dewertokin.de
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <a href="https://www.dewertokin.com/products/" target="_blank">Products</a>
-                    <a href="https://www.dewertokin.com/business-areas/" target="_blank">Business Areas</a>
-                    <a href="https://www.dewertokin.com/innovation/" target="_blank">Innovation</a>
-                    <a href="https://www.dewertokin.com/contact/" target="_blank">Contact</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <a href="https://www.dewertokin.com/privacy-policy/" target="_blank">Privacy Policy</a>
-                    <a href="https://www.dewertokin.com/legal-notice/" target="_blank">Legal Notice</a>
-                    <a href="https://www.dewertokin.com/terms/" target="_blank">Terms of Service</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 DewertOkin Technology Group. All rights reserved. | <a href="#" onclick="alert('To unsubscribe from our communications, please email unsubscribe@dewertokin.de with UNSUBSCRIBE in the subject line.'); return false;" style="color: #b8c5d6;">Unsubscribe</a></p>
-            </div>
+    <div class="ov-cards">
+
+      <!-- Card 1 — Adjustable Beds -->
+      <div class="ov-card reveal">
+        <!-- Image: ./images/cat-bed.jpg — electric adjustable bed lifestyle shot -->
+        <img
+          src="./images/cat-bed.jpg"
+          alt="Electric adjustable bed actuator system"
+          class="ov-img"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="ov-body">
+          <div class="ov-tag">Bedroom</div>
+          <div class="ov-title">Adjustable Bed Systems</div>
+          <p class="ov-desc">Complete drive solutions for motorized adjustable bases — head/foot lift, massage, wall-hugger geometry.</p>
+          <span class="ov-link">Learn More →</span>
         </div>
-    </footer>
+      </div>
+
+      <!-- Card 2 — Recliners / Sofas -->
+      <div class="ov-card reveal d1">
+        <!-- Image: ./images/cat-sofa.jpg — power recliner or sectional sofa lifestyle -->
+        <img
+          src="./images/cat-sofa.jpg"
+          alt="Power recliner and sofa actuator"
+          class="ov-img"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="ov-body">
+          <div class="ov-tag">Seating</div>
+          <div class="ov-title">Power Recliners &amp; Sofas</div>
+          <p class="ov-desc">Compact, whisper-quiet actuators for residential and cinema seating — up to 6,000 N static load.</p>
+          <span class="ov-link">Learn More →</span>
+        </div>
+      </div>
+
+      <!-- Card 3 — Office / Desk -->
+      <div class="ov-card reveal d2">
+        <!-- Image: ./images/cat-desk.jpg — sit-stand desk or lifting column workspace -->
+        <img
+          src="./images/cat-desk.jpg"
+          alt="Height adjustable desk lifting column"
+          class="ov-img"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="ov-body">
+          <div class="ov-tag">Office Ergonomics</div>
+          <div class="ov-title">Sit-Stand Desk Solutions</div>
+          <p class="ov-desc">High-cycle lifting columns and multi-motor controllers for height-adjustable workstations — BIFMA certified.</p>
+          <span class="ov-link">Learn More →</span>
+        </div>
+      </div>
+
+      <!-- Card 4 — Medical / Care -->
+      <div class="ov-card reveal d3">
+        <!-- Image: ./images/cat-medical.jpg — hospital/care bed or rehabilitation equipment -->
+        <img
+          src="./images/cat-medical.jpg"
+          alt="Medical care bed actuator system"
+          class="ov-img"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="ov-body">
+          <div class="ov-tag">Medical &amp; Care</div>
+          <div class="ov-title">Medical &amp; Homecare Beds</div>
+          <p class="ov-desc">Certified drive systems for profiling beds and care equipment — IEC 60601 and EN 50637 compliant.</p>
+          <span class="ov-link">Learn More →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     PRODUCTS
+============================== -->
+<!-- PRODUCTS — 6-card model grid on dark background -->
+<section id="products">
+  <div class="container">
+    <div class="prod-head reveal">
+      <div class="label" style="color:var(--orange)">Product Catalogue</div>
+      <div class="rule"></div>
+      <h2 class="h2 light">Core Product Lines</h2>
+      <p class="lead light">Precision-engineered components and integrated systems for OEM furniture and medical applications.</p>
+    </div>
+
+    <div class="prod-grid">
+
+      <!-- P1 — AFL Bed Actuator System -->
+      <div class="prod-card reveal">
+        <!-- Image: ./images/prod-bed-system.jpg — AFL dual actuator with control box -->
+        <img src="./images/prod-bed-system.jpg" alt="OKIN AFL adjustable bed actuator system" class="prod-img" loading="lazy" onerror="this.style.display='none'" />
+        <div class="prod-model">SERIES · AFL</div>
+        <div class="prod-name">AFL Bed Actuator System</div>
+        <ul class="prod-specs">
+          <li>Stroke: 100 – 200 mm</li>
+          <li>Force: up to 5,000 N (static)</li>
+          <li>Motor: 24V DC, ≤ 45 dB</li>
+          <li>Head + Foot independent</li>
+        </ul>
+        <a href="#contact" class="prod-link">Request Datasheet →</a>
+      </div>
+
+      <!-- P2 — CB.24.42 Control Box -->
+      <div class="prod-card reveal d1">
+        <!-- Image: ./images/prod-cb2442.jpg — CB.24.42 control box product shot -->
+        <img src="./images/prod-cb2442.jpg" alt="OKIN CB.24.42 bed control box" class="prod-img" loading="lazy" onerror="this.style.display='none'" />
+        <div class="prod-model">CB.24.42</div>
+        <div class="prod-name">Bed Control Box</div>
+        <ul class="prod-specs">
+          <li>Input: 29V DC (adapter)</li>
+          <li>2 output channels</li>
+          <li>Wireless + wired handset support</li>
+          <li>USB-A 5V 2.1A charging port</li>
+        </ul>
+        <a href="#contact" class="prod-link">Request Datasheet →</a>
+      </div>
+
+      <!-- P3 — RF.34.09 Wireless Remote -->
+      <div class="prod-card reveal d2">
+        <!-- Image: ./images/prod-rf3409.jpg — RF.34.09 wireless hand control -->
+        <img src="./images/prod-rf3409.jpg" alt="OKIN RF.34.09 wireless hand control" class="prod-img" loading="lazy" onerror="this.style.display='none'" />
+        <div class="prod-model">RF.34.09</div>
+        <div class="prod-name">Wireless Hand Control</div>
+        <ul class="prod-specs">
+          <li>RF 433 MHz / BLE dual mode</li>
+          <li>6-button backlit keypad</li>
+          <li>IP22 water-resistant</li>
+          <li>Up to 4 position presets</li>
+        </ul>
+        <a href="#contact" class="prod-link">Request Datasheet →</a>
+      </div>
+
+      <!-- P4 — Recliner Actuator -->
+      <div class="prod-card reveal">
+        <!-- Image: ./images/prod-sofa-act.jpg — compact recliner/sofa actuator -->
+        <img src="./images/prod-sofa-act.jpg" alt="OKIN compact sofa recliner linear actuator" class="prod-img" loading="lazy" onerror="this.style.display='none'" />
+        <div class="prod-model">SERIES · OL / CL</div>
+        <div class="prod-name">Recliner Actuator</div>
+        <ul class="prod-specs">
+          <li>Force: 3,000 – 6,000 N</li>
+          <li>Speed: 12 – 38 mm/s</li>
+          <li>Compact body, tight frames</li>
+          <li>CE / UL certified</li>
+        </ul>
+        <a href="#contact" class="prod-link">Request Datasheet →</a>
+      </div>
+
+      <!-- P5 — Desk Lifting Column -->
+      <div class="prod-card reveal d1">
+        <!-- Image: ./images/prod-desk-col.jpg — 3-stage desk lifting column -->
+        <img src="./images/prod-desk-col.jpg" alt="OKIN desk lifting column sit-stand" class="prod-img" loading="lazy" onerror="this.style.display='none'" />
+        <div class="prod-model">SERIES · DL</div>
+        <div class="prod-name">Desk Lifting Column</div>
+        <ul class="prod-specs">
+          <li>Stroke: 300 – 600 mm</li>
+          <li>Max load: 120 kg (dynamic)</li>
+          <li>Speed: up to 38 mm/s</li>
+          <li>Anti-collision detection</li>
+        </ul>
+        <a href="#contact" class="prod-link">Request Datasheet →</a>
+      </div>
+
+      <!-- P6 — Medical Grade Actuator -->
+      <div class="prod-card reveal d2">
+        <!-- Image: ./images/prod-med-act.jpg — medical grade linear actuator -->
+        <img src="./images/prod-med-act.jpg" alt="OKIN medical grade linear actuator" class="prod-img" loading="lazy" onerror="this.style.display='none'" />
+        <div class="prod-model">SERIES · MED</div>
+        <div class="prod-name">Medical Grade Actuator</div>
+        <ul class="prod-specs">
+          <li>IEC 60601-1 compliant</li>
+          <li>Force: up to 8,000 N</li>
+          <li>IP54 dust &amp; moisture rated</li>
+          <li>12V / 24V DC options</li>
+        </ul>
+        <a href="#contact" class="prod-link">Request Datasheet →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     TECH & R&D
+============================== -->
+<!-- TECH & R&D -->
+<section id="tech">
+  <div class="container">
+    <div class="tech-grid">
+
+      <!-- Left: image block -->
+      <div class="tech-img-wrap reveal">
+        <!-- Image: ./images/rd-lab.jpg — R&D lab, test rigs, PCB assembly, or precision machinery -->
+        <div class="tech-img" role="img" aria-label="OKIN R&D laboratory and testing facility"></div>
+        <div class="cert-strip">
+          <div class="cert"><div class="cert-dot"></div>ISO 9001</div>
+          <div class="cert"><div class="cert-dot"></div>CE Mark</div>
+          <div class="cert"><div class="cert-dot"></div>UL Listed</div>
+          <div class="cert"><div class="cert-dot"></div>BIFMA</div>
+          <div class="cert"><div class="cert-dot"></div>EN 50637</div>
+        </div>
+      </div>
+
+      <!-- Right: pillars -->
+      <div class="reveal d2">
+        <div class="label">Technology &amp; R&amp;D</div>
+        <div class="rule"></div>
+        <h2 class="h2">Built on Precision.<br/>Proven by Performance.</h2>
+        <p class="lead" style="margin-bottom:36px;">OKIN's in-house R&D team of 300+ engineers drives continuous innovation — from custom gear train design to IoT-integrated control electronics.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="p-num">01</div>
+            <div>
+              <div class="p-title">Precision Drive Engineering</div>
+              <p class="p-desc">Proprietary gear mechanism design with sub-millimeter positional accuracy. Full in-house tooling and die-casting for consistent dimensional control at production volume.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-num">02</div>
+            <div>
+              <div class="p-title">Smart Control Electronics</div>
+              <p class="p-desc">MCU-based control boards with BLE / RF / CAN bus support. Custom firmware development available for OEM partners requiring proprietary handset protocols or app integration.</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-num">03</div>
+            <div>
+              <div class="p-title">Safety &amp; Compliance Testing</div>
+              <p class="p-desc">Dedicated test labs for 100,000-cycle endurance validation, EMC, dielectric strength, anti-pinch force measurement, and certification test support (CE, UL, IEC).</p>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="p-num">04</div>
+            <div>
+              <div class="p-title">OEM Customization Capability</div>
+              <p class="p-desc">Stroke length, gearbox ratio, color, connector, and branded PCB — OKIN supports full OEM customization with MOQ-flexible tooling programs from prototype to mass production.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     SOLUTIONS
+============================== -->
+<!-- SOLUTIONS — tabbed by application -->
+<section id="solutions">
+  <div class="container">
+    <div class="sol-head reveal">
+      <div class="label">Industry Solutions</div>
+      <div class="rule" style="margin:0 auto 20px"></div>
+      <h2 class="h2">The Right Drive for<br/>Every Application</h2>
+      <p class="lead">How OKIN actuators are specified by leading furniture and care brands across four major categories.</p>
+    </div>
+
+    <div class="sol-tabs reveal d1">
+      <button class="s-tab active" data-panel="bed">Adjustable Beds</button>
+      <button class="s-tab" data-panel="sofa">Power Sofas</button>
+      <button class="s-tab" data-panel="office">Office Ergonomics</button>
+      <button class="s-tab" data-panel="medical">Medical &amp; Care</button>
+    </div>
+
+    <div>
+
+      <!-- Panel: Adjustable Beds -->
+      <!-- Image: ./images/sol-bed.jpg — adjustable bed bedroom lifestyle (split-king preferred) -->
+      <div class="s-panel active" id="panel-bed">
+        <div class="s-img" style="background-image:url('./images/sol-bed.jpg')" role="img" aria-label="OKIN adjustable bed drive system"></div>
+        <div>
+          <div class="label">Application</div>
+          <h3 class="s-title">Adjustable Bed &amp; Foundation Systems</h3>
+          <p class="s-desc">OKIN supplies complete drive packages for split-king, full, queen, and twin adjustable bed bases — actuators, control boxes, wireless handsets, and app-connected systems for the premium sleep market.</p>
+          <ul class="s-feats">
+            <li>Independent head &amp; foot articulation</li>
+            <li>Zero-gravity and flat memory presets</li>
+            <li>Wireless RF + BLE app control</li>
+            <li>Wall-hugger actuator geometry</li>
+            <li>Under-bed lighting &amp; USB integration</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss Your Project →</a>
+        </div>
+      </div>
+
+      <!-- Panel: Power Sofas -->
+      <!-- Image: ./images/sol-sofa.jpg — power recliner or modular sectional lifestyle -->
+      <div class="s-panel" id="panel-sofa">
+        <div class="s-img" style="background-image:url('./images/sol-sofa.jpg')" role="img" aria-label="OKIN power recliner sofa actuator"></div>
+        <div>
+          <div class="label">Application</div>
+          <h3 class="s-title">Power Recliners &amp; Modular Sofas</h3>
+          <p class="s-desc">Compact, high-force actuators purpose-built for recliner mechanisms and modular power sectionals — combining maximum force in the smallest body for tight frame clearance.</p>
+          <ul class="s-feats">
+            <li>Forces to 6,000 N for heavy frames</li>
+            <li>Noise level ≤ 42 dB (A-weighted)</li>
+            <li>Integrated limit switch protection</li>
+            <li>2-motor split system compatible</li>
+            <li>Wired and wireless control options</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss Your Project →</a>
+        </div>
+      </div>
+
+      <!-- Panel: Office Ergonomics -->
+      <!-- Image: ./images/sol-desk.jpg — modern sit-stand desk workspace lifestyle -->
+      <div class="s-panel" id="panel-office">
+        <div class="s-img" style="background-image:url('./images/sol-desk.jpg')" role="img" aria-label="OKIN sit-stand desk lifting solution"></div>
+        <div>
+          <div class="label">Application</div>
+          <h3 class="s-title">Height-Adjustable Desk Workstations</h3>
+          <p class="s-desc">OKIN's dual- and triple-motor lifting columns power sit-stand desks for commercial office, home office, and education — BIFMA certified with programmable memory controllers.</p>
+          <ul class="s-feats">
+            <li>BIFMA &amp; EN 527-2 compliant</li>
+            <li>3-stage columns for max height range</li>
+            <li>Anti-collision auto-reversal</li>
+            <li>4-memory digital keypad included</li>
+            <li>Quiet operation ≤ 50 dB at full load</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss Your Project →</a>
+        </div>
+      </div>
+
+      <!-- Panel: Medical & Care -->
+      <!-- Image: ./images/sol-medical.jpg — hospital profiling bed or homecare bed with actuator -->
+      <div class="s-panel" id="panel-medical">
+        <div class="s-img" style="background-image:url('./images/sol-medical.jpg')" role="img" aria-label="OKIN medical care bed actuator"></div>
+        <div>
+          <div class="label">Application</div>
+          <h3 class="s-title">Medical &amp; Homecare Profiling Beds</h3>
+          <p class="s-desc">OKIN's medical-grade actuators meet the strictest safety and hygiene standards for hospital profiling beds, homecare lift beds, and rehabilitation equipment across global markets.</p>
+          <ul class="s-feats">
+            <li>IEC 60601-1 / EN 50637 certified</li>
+            <li>IP54 ingress protection rating</li>
+            <li>Emergency backup power compatible</li>
+            <li>Anti-entrapment force monitoring</li>
+            <li>Cleanroom-compatible assembly options</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss Your Project →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     RESOURCES
+============================== -->
+<!-- RESOURCES — documentation downloads -->
+<section id="resources">
+  <div class="container">
+    <div class="res-head reveal">
+      <div>
+        <div class="label">Documentation</div>
+        <div class="rule"></div>
+        <h2 class="h2 light">Technical Resources</h2>
+      </div>
+      <a href="#contact" class="btn btn-ghost-w">Request Full Catalogue →</a>
+    </div>
+
+    <div class="res-grid">
+
+      <div class="res-card reveal" onclick="alert('Contact us to receive this document.')">
+        <div class="res-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="res-type">PDF · Catalogue</div>
+        <div class="res-title">OKIN Full Product Catalogue 2025</div>
+        <div class="res-meta">Updated Q1 2025 · ~8 MB</div>
+        <div class="res-dl">↓ Download PDF</div>
+      </div>
+
+      <div class="res-card reveal d1" onclick="alert('Contact us to receive this document.')">
+        <div class="res-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 10h8M8 14h4"/></svg>
+        </div>
+        <div class="res-type">PDF · Datasheet</div>
+        <div class="res-title">AFL Bed Series — Technical Spec Sheet</div>
+        <div class="res-meta">CB.24.42 + RF.34.09 included</div>
+        <div class="res-dl">↓ Download PDF</div>
+      </div>
+
+      <div class="res-card reveal d2" onclick="alert('Contact us to receive this document.')">
+        <div class="res-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="res-type">PDF · Guide</div>
+        <div class="res-title">OEM Customization &amp; MOQ Guide</div>
+        <div class="res-meta">Tooling · Firmware · Branding options</div>
+        <div class="res-dl">↓ Download PDF</div>
+      </div>
+
+      <div class="res-card reveal d3" onclick="alert('Contact us to receive this document.')">
+        <div class="res-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="res-type">PDF · Compliance</div>
+        <div class="res-title">CE / UL / BIFMA Certification Pack</div>
+        <div class="res-meta">ISO 9001 · EN 50637 · IEC 60601</div>
+        <div class="res-dl">↓ Download PDF</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     CONTACT
+============================== -->
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-intro reveal">
+      <div class="label">Contact Us</div>
+      <div class="rule" style="margin:0 auto 20px"></div>
+      <h2 class="h2">Start a Conversation.<br/>Build a Partnership.</h2>
+      <p class="lead">Our product specialists respond within 1 business day.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Left: info + map -->
+      <div class="reveal">
+        <div class="c-detail">
+          <div class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="c-lbl">Factory Address</div>
+            <div class="c-val">OKIN Motion Technology<br/>Guangdong Province, China</div>
+          </div>
+        </div>
+        <div class="c-detail">
+          <div class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+          </div>
+          <div>
+            <div class="c-lbl">Sales Enquiries</div>
+            <div class="c-val">+86 (0)769 — OKIN Sales<br/>Mon–Fri, 09:00–18:00 CST</div>
+          </div>
+        </div>
+        <div class="c-detail">
+          <div class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="c-lbl">Email</div>
+            <div class="c-val">sales@okinactuator.com<br/>export@dewertokin.com</div>
+          </div>
+        </div>
+        <div class="c-detail">
+          <div class="c-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <div class="c-lbl">Trade Shows</div>
+            <div class="c-val">interzum Guangzhou 2025<br/>IMM Cologne · High Point Market</div>
+          </div>
+        </div>
+
+        <!-- Map: replace div with Google Maps iframe, or use ./images/map-placeholder.jpg as background -->
+        <div class="map-ph" role="img" aria-label="OKIN factory location — Guangdong, China"></div>
+      </div>
+
+      <!-- Right: inquiry form -->
+      <div class="reveal d2">
+        <div class="form-row">
+          <div class="fg">
+            <label for="fn">First Name *</label>
+            <input type="text" id="fn" placeholder="John" required />
+          </div>
+          <div class="fg">
+            <label for="ln">Last Name *</label>
+            <input type="text" id="ln" placeholder="Smith" required />
+          </div>
+        </div>
+        <div class="fg">
+          <label for="co">Company Name *</label>
+          <input type="text" id="co" placeholder="Your Company Ltd." required />
+        </div>
+        <div class="fg">
+          <label for="em">Business Email *</label>
+          <input type="email" id="em" placeholder="john@yourcompany.com" required />
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label for="ct">Country</label>
+            <input type="text" id="ct" placeholder="United States" />
+          </div>
+          <div class="fg">
+            <label for="pi">Product Interest</label>
+            <select id="pi">
+              <option value="">— Select —</option>
+              <option>Adjustable Bed Systems</option>
+              <option>Power Recliner / Sofa</option>
+              <option>Sit-Stand Desk / Lifting Column</option>
+              <option>Medical / Care Beds</option>
+              <option>Custom OEM Solution</option>
+              <option>Technical Datasheet Request</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="vo">Annual Volume (units, est.)</label>
+          <select id="vo">
+            <option value="">— Select range —</option>
+            <option>Under 500 units</option>
+            <option>500 – 2,000 units</option>
+            <option>2,000 – 10,000 units</option>
+            <option>10,000 – 50,000 units</option>
+            <option>50,000+ units</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="ms">Project Details</label>
+          <textarea id="ms" placeholder="Describe your product, application, or technical requirements…"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="submitForm(this)" style="width:100%;justify-content:center;font-size:1rem;">
+          Send Inquiry →
+        </button>
+        <p class="form-note">* Required fields. We respect your privacy and only use your information to respond to this inquiry.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==============================
+     FOOTER
+============================== -->
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+
+      <div>
+        <div class="foot-logo">OKIN<span>.</span></div>
+        <p class="foot-tag">Smart linear actuator solutions for adjustable beds, power seating, ergonomic offices, and medical furniture — OEM partner to global furniture brands since 1982.</p>
+        <div class="socials">
+          <a href="#" class="soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20.06 12 20.06 12 20.06s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+          </a>
+          <a href="mailto:sales@okinactuator.com" class="soc" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="foot-col">
+        <h5>Products</h5>
+        <ul>
+          <li><a href="#products">Bed Actuator Systems</a></li>
+          <li><a href="#products">Recliner Actuators</a></li>
+          <li><a href="#products">Lifting Columns</a></li>
+          <li><a href="#products">Control Boxes</a></li>
+          <li><a href="#products">Wireless Handsets</a></li>
+          <li><a href="#products">Medical Actuators</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h5>Solutions</h5>
+        <ul>
+          <li><a href="#solutions">Adjustable Beds</a></li>
+          <li><a href="#solutions">Power Sofas</a></li>
+          <li><a href="#solutions">Sit-Stand Desks</a></li>
+          <li><a href="#solutions">Medical &amp; Homecare</a></li>
+          <li><a href="#tech">OEM Customization</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#about">About OKIN</a></li>
+          <li><a href="#tech">Technology &amp; R&amp;D</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#contact">Contact Sales</a></li>
+          <li><a href="https://www.dewertokin.com" target="_blank" rel="noopener">DEWERTOKIN Group ↗</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="foot-bottom">
+      <div class="foot-copy">© 2025 OKIN Motion Technology / DEWERTOKIN Group. All rights reserved.</div>
+      <div class="foot-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Legal Notice</a>
+        <a href="#">Cookie Settings</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
+<script>
+  // ── Mobile Nav ──
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('mob-nav');
+  ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+  document.querySelectorAll('.m-lnk').forEach(a => a.addEventListener('click', () => { ham.classList.remove('open'); mob.classList.remove('open'); }));
+
+  // ── Navbar shadow on scroll ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+  // ── Active nav link on scroll ──
+  const sections = document.querySelectorAll('section[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${e.target.id}`));
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => io.observe(s));
+
+  // ── Scroll Reveal ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+  revealEls.forEach(el => ro.observe(el));
+
+  // ── Solutions Tabs ──
+  document.querySelectorAll('.s-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.s-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.s-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(`panel-${tab.dataset.panel}`).classList.add('active');
+    });
+  });
+
+  // ── Form Submit ──
+  function submitForm(btn) {
+    const name = document.getElementById('fn').value.trim();
+    const email = document.getElementById('em').value.trim();
+    const company = document.getElementById('co').value.trim();
+    if (!name || !email || !company) { alert('Please fill in all required fields (Name, Email, Company).'); return; }
+    btn.textContent = '✓ Inquiry Sent — We\'ll be in touch!';
+    btn.style.cssText = 'background:#059669;border-color:#059669;width:100%;justify-content:center;font-size:1rem;';
+    btn.disabled = true;
+    // TODO: POST to your backend endpoint: fetch('/api/contact', { method:'POST', ... })
+  }
+</script>
+
 </body>
 </html>
