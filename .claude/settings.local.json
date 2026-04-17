@@ -50,7 +50,10 @@
       "WebFetch(domain:www.lasvegasmarket.com)",
       "WebFetch(domain:www.imm-cologne.com)",
       "WebFetch(domain:www.highpointmarket.org)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
